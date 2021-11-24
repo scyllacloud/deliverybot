@@ -159,11 +159,11 @@ export function auth({ app, csrf, userService, config }: Dependencies) {
         await userService().delete(`${user.id}`);
       }
       req.session = {};
-      res.redirect("https://deliverybot.dev");
+      res.redirect("https://dbot.scylla.cloud");
     },
   );
   app.get("/logout", (req: Request, res: Response) => {
     req.session = {};
-    res.redirect("https://deliverybot.dev");
+    res.redirect("https://dbot.scylla.cloud");
   });
 }

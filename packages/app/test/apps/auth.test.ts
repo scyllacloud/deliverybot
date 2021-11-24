@@ -13,7 +13,7 @@ describe("Auth", () => {
   it("gets logout", async () => {
     const response = await factory.request(app).get("/logout");
     expect(response.status).toBe(302);
-    expect(response.get("location")).toEqual("https://deliverybot.dev");
+    expect(response.get("location")).toEqual("https://dbot.scylla.cloud");
   });
 
   it("gets callback", async () => {

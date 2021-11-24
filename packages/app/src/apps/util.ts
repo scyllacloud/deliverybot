@@ -12,7 +12,7 @@ export function yamlEncode(data: any) {
 
 export const hash = (a: any): string => objectHash(a);
 
-const example = `# View examples and documentation at https://deliverybot.dev/docs/
+const example = `# View examples and documentation at https://dbot.scylla.cloud/docs/
 production:
   environment: production
   production_environment: true
