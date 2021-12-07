@@ -9,15 +9,6 @@ const state = {
   sockets: [],
 };
 
-function proxy() {
-  const SmeeClient = require("smee-client");
-  const smee = new SmeeClient({
-    source: process.env.WEBHOOK_PROXY_URL,
-    target: `http://0.0.0.0:3000`
-  });
-  smee.start();
-}
-
 function start() {
   state.server = require('@deliverybot/run').express.listen(3000, () => {
     console.log('Listening on 3000');
@@ -64,5 +55,4 @@ fs.watchFile("tmp/restart.txt", () => {
 });
 
 start();
-proxy();
 shutdown();

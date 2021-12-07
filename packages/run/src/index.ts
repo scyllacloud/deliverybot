@@ -11,7 +11,7 @@ const opts: Options = {
   webhookPath: env("WEBHOOK_PATH"),
   webhookSecret: env("WEBHOOK_SECRET"),
   appSecret: env("WEBHOOK_SECRET") || "development",
-  privateKey: env("PRIVATE_KEY"),
+  privateKey: envb64("PRIVATE_KEY"),
   config: {
     slackLoginUrl: env("SLACK_LOGIN_URL"),
     slackClientId: env("SLACK_CLIENT_ID"),
@@ -29,6 +29,10 @@ const opts: Options = {
 
 function env(n: string) {
   return process.env[n] || "";
+}
+
+function envb64(n: string) {
+  return Buffer.from(env(n), 'base64').toString('utf-8')
 }
 
 export = load(services, apps, opts);

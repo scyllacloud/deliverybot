@@ -76,7 +76,7 @@ export function load(services: Services, apps: RegisterFunc[], opts: Options) {
       cookie: {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: opts.production,
+        secureProxy: opts.production,
       },
     }),
   );
